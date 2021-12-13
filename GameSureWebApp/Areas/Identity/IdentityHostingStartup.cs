@@ -17,7 +17,7 @@ namespace GameSureWebApp.Areas.Identity
         {
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<GameSureAuthDBContext>(options =>
-                    options.UseMySQL(
+                    options.UseSqlServer(
                         context.Configuration.GetConnectionString("GameSureAuthDBContextConnection")));
 
                 services.AddDefaultIdentity<GameSureWebAppUser>(options => options.SignIn.RequireConfirmedAccount = false)
