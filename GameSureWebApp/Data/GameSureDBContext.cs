@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GameSureWebApp.Areas.Identity.Data;
+using GameSureWebApp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameSureWebApp.Data
 {
-    public class GameSureAuthDBContext : IdentityDbContext<GameSureWebAppUser>
+    public class GameSureDBContext : IdentityDbContext<GameSureWebAppUser>
     {
-        public GameSureAuthDBContext(DbContextOptions<GameSureAuthDBContext> options)
+        public GameSureDBContext(DbContextOptions<GameSureDBContext> options)
             : base(options)
         {
         }
-
+        public DbSet<GameSureWebAppUser> GameSureWebAppUsers { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<TransactionDet> TransactionDets { get; set; }
+        public DbSet<PaymentMethod> Payments { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

@@ -17,5 +17,8 @@ namespace GameSureWebApp.Areas.Identity.Data
         [PersonalData]
         [Column(TypeName = "Text")] 
         public string LastName { get; set; }
+
+        public string City { get; set; }
+        public string State { get; set; }
     }
 }

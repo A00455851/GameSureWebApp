@@ -16,12 +16,12 @@ namespace GameSureWebApp.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
-                services.AddDbContext<GameSureAuthDBContext>(options =>
+                services.AddDbContext<GameSureDBContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("GameSureAuthDBContextConnection")));
 
                 services.AddDefaultIdentity<GameSureWebAppUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                    .AddEntityFrameworkStores<GameSureAuthDBContext>();
+                    .AddEntityFrameworkStores<GameSureDBContext>();
             });
         }
     }

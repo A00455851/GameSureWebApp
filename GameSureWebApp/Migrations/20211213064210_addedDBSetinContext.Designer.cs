@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameSureWebApp.Migrations
 {
     [DbContext(typeof(GameSureDBContext))]
-    [Migration("20211213024539_addingDB")]
-    partial class addingDB
+    [Migration("20211213064210_addedDBSetinContext")]
+    partial class addedDBSetinContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace GameSureWebApp.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -72,6 +75,9 @@ namespace GameSureWebApp.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -90,6 +96,102 @@ namespace GameSureWebApp.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("GameSureWebApp.Models.PaymentMethod", b =>
+                {
+                    b.Property<int>("PayId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("PaymentType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PayId");
+
+                    b.ToTable("Payments");
+                });
+
+            modelBuilder.Entity("GameSureWebApp.Models.Product", b =>
+                {
+                    b.Property<int>("ProdId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("PDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Ptype")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProdId");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("GameSureWebApp.Models.Transaction", b =>
+                {
+                    b.Property<int>("TxnId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("GameSureWebAppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("PaymentMethodPayId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("TxnDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TxnStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TxnId");
+
+                    b.HasIndex("GameSureWebAppUserId");
+
+                    b.HasIndex("PaymentMethodPayId");
+
+                    b.ToTable("Transactions");
+                });
+
+            modelBuilder.Entity("GameSureWebApp.Models.TransactionDet", b =>
+                {
+                    b.Property<string>("TxnDetNo")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EquipmentDet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductProdId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TotalPrice")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TransactionTxnId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TxnDetNo");
+
+                    b.HasIndex("ProductProdId");
+
+                    b.HasIndex("TransactionTxnId");
+
+                    b.ToTable("TransactionDets");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -225,6 +327,36 @@ namespace GameSureWebApp.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("GameSureWebApp.Models.Transaction", b =>
+                {
+                    b.HasOne("GameSureWebApp.Areas.Identity.Data.GameSureWebAppUser", "GameSureWebAppUser")
+                        .WithMany()
+                        .HasForeignKey("GameSureWebAppUserId");
+
+                    b.HasOne("GameSureWebApp.Models.PaymentMethod", "PaymentMethod")
+                        .WithMany()
+                        .HasForeignKey("PaymentMethodPayId");
+
+                    b.Navigation("GameSureWebAppUser");
+
+                    b.Navigation("PaymentMethod");
+                });
+
+            modelBuilder.Entity("GameSureWebApp.Models.TransactionDet", b =>
+                {
+                    b.HasOne("GameSureWebApp.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductProdId");
+
+                    b.HasOne("GameSureWebApp.Models.Transaction", "Transaction")
+                        .WithMany()
+                        .HasForeignKey("TransactionTxnId");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
