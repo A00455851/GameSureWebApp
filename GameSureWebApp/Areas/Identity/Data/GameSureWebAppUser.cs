@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using GameSureWebApp.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace GameSureWebApp.Areas.Identity.Data
@@ -17,5 +18,10 @@ namespace GameSureWebApp.Areas.Identity.Data
         [PersonalData]
         [Column(TypeName = "Text")] 
         public string LastName { get; set; }
+        public string Addr1 { get; set; }
+        public string Addr2 { get; set; }
+
+        public string City { get; set; }
+        public Province State { get; set; }
     }
 }
