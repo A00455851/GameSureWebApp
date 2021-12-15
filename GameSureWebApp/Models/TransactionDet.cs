@@ -10,7 +10,7 @@ namespace GameSureWebApp.Models
     {
         [Key]
         public string TxnDetNo { get; set; }
-        public string EquipmentDet {get; set;}
+        public string EquipmentDet { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
