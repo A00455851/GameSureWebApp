@@ -1,6 +1,8 @@
 using System;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.ComponentModel.DataAnnotations;
+
 namespace GameSureWebApp.Controllers
 {
     public class validation
