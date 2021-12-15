@@ -1,45 +1,34 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using GameSureWebApp.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GameSureWebApp.Areas.Identity.Data;
-using GameSureWebApp.Models;
-using GameSureWebApp.Models.ViewModels;
-using Microsoft.AspNetCore.Identity;
-using GameSureWebApp.Controllers;
 
 namespace GameSureWebApp.Controllers
 {
-    public class UserDetController : Controller
+    public class Transaction : Controller
     {
-        private readonly SignInManager<GameSureWebAppUser> _signInManager;
-
-        public UserDetController(SignInManager<GameSureWebAppUser> signInManager)
-        {
-            _signInManager = signInManager;
-        }
-        // GET: UserDetController
+        // GET: Transaction
         public ActionResult Index()
         {
             return View();
         }
 
-        
-        // GET: UserDetController/Details/5
+        // GET: Transaction/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: UserDetController/Create
+        // GET: Transaction/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: UserDetController/Create
+        // POST: Transaction/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -53,35 +42,18 @@ namespace GameSureWebApp.Controllers
                 return View();
             }
         }
-        [HttpPost]
-        //public ActionResult UserPreview(UserForm userForm)
-        //{
-        //    if (_signInManager.IsSignedIn(User))
-        //    {
-        //        return View(userForm);
-        //    }
-        //    else
-        //        return RedirectToAction("Login","Account");
-        //}
-        public IActionResult UserPreview(UserForm userForm)
+        public IActionResult TxnComplete(UserForm userForm)
         {
-            if(validation.isValidName(userForm.FirstName))
-            {
-                return View(userForm);
-            }
-            else
-            {
-                return View();
-            }
-           
+            return View();
         }
-        // GET: UserDetController/Edit/5
+
+        // GET: Transaction/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: UserDetController/Edit/5
+        // POST: Transaction/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -96,13 +68,13 @@ namespace GameSureWebApp.Controllers
             }
         }
 
-        // GET: UserDetController/Delete/5
+        // GET: Transaction/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: UserDetController/Delete/5
+        // POST: Transaction/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

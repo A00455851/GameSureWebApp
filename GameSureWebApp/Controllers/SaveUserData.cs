@@ -7,11 +7,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using GameSureWebApp.Models;
 using GameSureWebApp.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace GameSureWebApp.Controllers
 {
     public class SaveUserData : Controller
     {
+        private readonly SignInManager<GameSureWebAppUser> _signInManager;
+
+        public SaveUserData(SignInManager<GameSureWebAppUser> signInManager)
+        {
+            _signInManager = signInManager;
+        }
+        
         // GET: SaveUserData
         public ActionResult Index()
         {
@@ -47,7 +55,12 @@ namespace GameSureWebApp.Controllers
         [HttpPost]
         public ActionResult SaveData(UserForm userForm)
         {
-            return View(userForm);
+            if (_signInManager.IsSignedIn(User))
+            {
+                return View(userForm);
+            }
+            else
+                return RedirectToAction("Index");
         }
 
         // GET: SaveUserData/Edit/5
