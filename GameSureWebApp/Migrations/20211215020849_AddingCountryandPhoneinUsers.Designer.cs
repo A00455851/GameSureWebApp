@@ -4,14 +4,16 @@ using GameSureWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GameSureWebApp.Migrations
 {
     [DbContext(typeof(GameSureDBContext))]
-    partial class GameSureAuthDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211215020849_AddingCountryandPhoneinUsers")]
+    partial class AddingCountryandPhoneinUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

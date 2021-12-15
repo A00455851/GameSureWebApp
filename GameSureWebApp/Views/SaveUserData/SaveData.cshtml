@@ -1,0 +1,96 @@
+﻿@model GameSureWebApp.Models.ViewModels.UserForm
+
+@using (Html.BeginForm("SaveData", "SaveUserData", FormMethod.Post))
+
+
+
+{
+
+    <div class="card-group">
+    <div class="card" style="max-width: 18rem;">
+        <div class="card-body text-white bg-primary mb-3">
+            <h5 class="card-title">Payment Summary</h5>
+            <p class="card-text">Your total purchase is: $XX</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Payment Details</h5>
+            <div class="row">
+                <div class="col">
+                    <label for="CardType" class="">Credit Card Type</label>
+                </div>
+                <div class="col">
+                    <input type="radio" class="form-control" style="height:15px; width:15px;" checked name="CardTypeVisa" aria-describedby="CardType" placeholder="CardType" value="@Html.DisplayFor(model => model.FirstName)">
+                    <label for="CardTypeVisa">Visa</label>
+                </div>
+                <div class="col">
+                    <input type="radio" class="form-control" style="height:15px; width:15px;" name="CardTypeMaster" aria-describedby="CardTypeMaster" placeholder="CardType" value="@Html.DisplayFor(model => model.FirstName)">
+                    <label for="CardTypeMaster">Master</label>
+                </div>
+                <div class="col">
+                    <input type="radio" class="form-control" style="height:15px; width:15px;" name="CardTypeAmex" aria-describedby="CardTypeAmex" placeholder="CardType" value="@Html.DisplayFor(model => model.FirstName)">
+                    <label for="CardTypeMaster">American Express</label>
+                </div>
+            </div>
+            <div class="row">
+                <label for="CardNum" class="pl-2">Enter Card Number</label>
+                <Input type="text" class="form-control  pl-2" name="CardNum" aria-describedby="CardNum" placeholder="# Card Number" value="@Html.DisplayFor(model => model.FirstName)">
+            </div>
+            <div class="row">
+                <label for="CardName" class="pl-2">Name on Card</label>
+                <Input type="text" class="form-control  pl-2" name="CardName" aria-describedby="CardName" placeholder="Name on Card" value="@Html.DisplayFor(model => model.FirstName)">
+            </div>
+            <div class="row pt-2">
+                <div class="col-6">
+                    <label for="CardFrom">Card Valid from</label>
+                </div>
+                <div class="col-6">
+                    <label for="CardTo">Card Valid Through</label>
+
+                    @*<Input type="date" class="form-control" name="CardFrom" aria-describedby="CardFrom" placeholder="MM/YYYY" value="@Html.DisplayFor(model => model.FirstName)">*@
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <Input type="date" class="form-control" name="CardFrom" aria-describedby="CardFrom" placeholder="MM/YYYY" value="@Html.DisplayFor(model => model.FirstName)">
+                </div>
+                <div class="col-6">
+                    <Input type="date" class="form-control" name="CardFrom" aria-describedby="CardTo" placeholder="MM/YYYY" value="@Html.DisplayFor(model => model.FirstName)">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+    <div class="row pt-4">
+        <div class="col-10">
+
+        </div>
+        <div class="col text-right">
+            <button type="submit" class="btn btn-primary">Confirm</button>
+        </div>
+    </div>
+
+@*<div class="form-group card">
+        <div class="card-header">
+            Payment
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <label for="CardType">Select mode of payment</label>
+
+                <select asp-items="Html.GetEnumSelectList<Province>()" class="form-control" name="CardType" aria-describedby="CardType" placeholder="Select" value="@Html.DisplayFor(model => model.FirstName)"></select>
+            </div>
+            <div class="row">
+                <label for="CardNum">Enter Card Number</label>
+
+                <Input type="text" class="form-control" name="CardNum" aria-describedby="CardNum" placeholder="Card Number" value="@Html.DisplayFor(model => model.FirstName)">
+            </div>
+
+        </div>
+    </div>*@
+
+
+
+}
