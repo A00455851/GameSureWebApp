@@ -15,8 +15,9 @@
             <div class="col-2">
                 <label for="FirstName">First Name</label>
             </div>
-            <div class="col-5">
+            <div class="form-group col-5">
                 <input type="text" class="form-control" name="FirstName" aria-describedby="FirstName" placeholder="First Name" value="@Html.DisplayFor(model => model.FirstName)">
+                <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
         </div>
     </div>
