@@ -18,6 +18,7 @@ namespace GameSureWebApp.Models.ViewModels
         public string Addr2 { get; set; }
         public string City { get; set; }
         public Province Province { get; set; }
+        public Country Country { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 

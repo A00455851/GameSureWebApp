@@ -21,7 +21,9 @@ namespace GameSureWebApp.Areas.Identity.Data
         public string Addr1 { get; set; }
         public string Addr2 { get; set; }
 
+        public int Phone { get; set; }
         public string City { get; set; }
         public Province State { get; set; }
+        public Country Country { get; set; }
     }
 }

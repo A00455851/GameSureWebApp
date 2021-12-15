@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GameSureWebApp.Data
 {
-    public class GameSureAuthDBContext : IdentityDbContext<GameSureWebAppUser>
+    public class GameSureDBContext : IdentityDbContext<GameSureWebAppUser>
     {
-        public GameSureAuthDBContext(DbContextOptions<GameSureAuthDBContext> options)
+        public GameSureDBContext(DbContextOptions<GameSureDBContext> options)
             : base(options)
         {
         }
