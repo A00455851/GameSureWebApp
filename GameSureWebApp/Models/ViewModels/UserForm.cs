@@ -1,10 +1,12 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using GameSureWebApp.Areas.Identity.Data;
 using GameSureWebApp.Models;
+
 
 namespace GameSureWebApp.Models.ViewModels
 {
@@ -19,8 +21,12 @@ namespace GameSureWebApp.Models.ViewModels
         [Required(ErrorMessage ="Phone number is required")]
         public int Phone { get; set; }
         [Required(ErrorMessage ="Address line 1 is required")]
+
         public string Addr1 { get; set; }
+        [Required]
+        [RegularExpression(@"^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$", ErrorMessage = "Please enter a valid address. ")]
         public string Addr2 { get; set; }
+
         [Required(ErrorMessage ="City is required")]
         public string City { get; set; }
         [Required(ErrorMessage ="Province is required")]
@@ -32,6 +38,7 @@ namespace GameSureWebApp.Models.ViewModels
         [Required(ErrorMessage ="Start Date is required")]
         public DateTime StartDate { get; set; }
         [Required(ErrorMessage = "End Date is required")]
+
         public DateTime EndDate { get; set; }
         [Required(ErrorMessage ="Card Number is required")]
         [StringLength(16,ErrorMessage ="Card length cannot exceed 16 digits")]

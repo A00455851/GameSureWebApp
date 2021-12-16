@@ -1,0 +1,48 @@
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
+
+namespace GameSureWebApp.Controllers
+{
+    public class zipCodeValidator : ValidationAttribute
+    {
+        private Models.Country _countryPropertyName;
+        public zipCodeValidator(Models.Country country)
+        {
+            _countryPropertyName = country;
+        }
+
+        public zipCodeValidator(string errorMessage) : base(errorMessage)
+        {
+        }
+
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            //var propertyInfo = validationContext.ObjectType.GetProperty(_countryPropertyName.ToString());
+            //var propertyValue = propertyInfo.GetValue(validationContext.ObjectInstance, null);
+            string zipCode = value.ToString();
+            if (_countryPropertyName == Models.Country.United_States)
+            {
+                if (string.IsNullOrWhiteSpace(zipCode))
+                    return new ValidationResult("There is an error in zipCode."); ;
+                var _usZipRegEx = @"^\d{5}(?:[-\s]\d{4})?$";
+                if ((!Regex.Match(zipCode, _usZipRegEx).Success))
+                {
+                    return new ValidationResult("There is an error in zipCode.");
+                }
+                return ValidationResult.Success;
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(zipCode))
+                    return new ValidationResult("There is an error in zipCode."); ;
+                var _caZipRegEx = @"^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ])\ {0,1}(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$";
+                if ((!Regex.Match(zipCode, _caZipRegEx).Success))
+                {
+                    return new ValidationResult("There is an error in zipCode.");
+                }
+                return ValidationResult.Success;
+            }
+        }
+    }
+}
