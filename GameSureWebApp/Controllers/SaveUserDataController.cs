@@ -5,30 +5,40 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GameSureWebApp.Models;
+using GameSureWebApp.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace GameSureWebApp.Controllers
 {
-    public class Transaction : Controller
+    public class SaveUserDataController : Controller
     {
-        // GET: Transaction
+        private readonly SignInManager<GameSureWebAppUser> _signInManager;
+
+        public SaveUserDataController(SignInManager<GameSureWebAppUser> signInManager)
+        {
+            _signInManager = signInManager;
+        }
+        
+        // GET: SaveUserData
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Transaction/Details/5
+        // GET: SaveUserData/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Transaction/Create
+        // GET: SaveUserData/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Transaction/Create
+        // POST: SaveUserData/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -42,18 +52,26 @@ namespace GameSureWebApp.Controllers
                 return View();
             }
         }
-        public IActionResult TxnComplete(UserForm userForm)
+        [HttpPost]
+        public ActionResult SaveData(UserForm userForm)
         {
-            return View();
+             
+            if (_signInManager.IsSignedIn(User))
+            {
+
+                return View(userForm);
+            }
+            else
+                return RedirectToAction("Index");
         }
 
-        // GET: Transaction/Edit/5
+        // GET: SaveUserData/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Transaction/Edit/5
+        // POST: SaveUserData/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -68,13 +86,13 @@ namespace GameSureWebApp.Controllers
             }
         }
 
-        // GET: Transaction/Delete/5
+        // GET: SaveUserData/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Transaction/Delete/5
+        // POST: SaveUserData/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

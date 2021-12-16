@@ -7,73 +7,84 @@
 {
 
     <div class="card-group">
-    <div class="card" style="max-width: 18rem;">
-        <div class="card-body text-white bg-primary mb-3">
-            <h5 class="card-title">Payment Summary</h5>
-            <p class="card-text">Your total purchase is: $XX</p>
+        <div class="card" style="max-width: 18rem;">
+            <div class="card-body text-white bg-primary mb-3">
+                <h5 class="card-title">Payment Summary</h5>
+                <p class="card-text">Your total purchase is: $XX</p>
+            </div>
         </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Payment Details</h5>
-            <div class="row">
-                <div class="col">
-                    <label for="CardType" class="">Credit Card Type</label>
-                </div>
-                <div class="col">
-                    <input type="radio" class="form-control" style="height:15px; width:15px;" checked name="CardTypeVisa" aria-describedby="CardType" placeholder="CardType" value="@Html.DisplayFor(model => model.FirstName)">
-                    <label for="CardTypeVisa">Visa</label>
-                </div>
-                <div class="col">
-                    <input type="radio" class="form-control" style="height:15px; width:15px;" name="CardTypeMaster" aria-describedby="CardTypeMaster" placeholder="CardType" value="@Html.DisplayFor(model => model.FirstName)">
-                    <label for="CardTypeMaster">Master</label>
-                </div>
-                <div class="col">
-                    <input type="radio" class="form-control" style="height:15px; width:15px;" name="CardTypeAmex" aria-describedby="CardTypeAmex" placeholder="CardType" value="@Html.DisplayFor(model => model.FirstName)">
-                    <label for="CardTypeMaster">American Express</label>
-                </div>
-            </div>
-            <div class="row">
-                <label for="CardNum" class="pl-2">Enter Card Number</label>
-            </div>
-            <div class="form-group row">
-                <Input type="number" class="form-control  pl-2" name="CardNumber" aria-describedby="CardNumber" placeholder="# Card Number" value="@Html.DisplayFor(model => model.CardNumber)">
-                <span asp-validation-for="CardNumber" class="text-danger"></span>
-            </div>
-            @*<Input type="number" class="form-control  pl-2" name="CardNumber" aria-describedby="CardNumber" placeholder="# Card Number" value="@Html.DisplayFor(model => model.CardNumber)">*@
-            <div class="row">
-                <label for="CardName" class="pl-2">Name on Card</label>
-                <Input type="text" class="form-control  pl-2" name="CardName" aria-describedby="CardName" placeholder="Name on Card" value="@Html.DisplayFor(model => model.CardName)">
-            </div>
-            <div class="row pt-2">
-                <div class="col-6">
-                    <label for="CardFrom">Card Valid Through</label>
-                </div>
-                <div class="col-6">
-                    <label for="CardTo">CVV</label>
-                    @*<Input type="date" class="form-control" name="CardFrom" aria-describedby="CardFrom" placeholder="MM/YYYY" value="@Html.DisplayFor(model => model.FirstName)">*@
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <Input type="date" class="form-control" name="CardExpiry" aria-describedby="CardExpiry" placeholder="MM/YYYY" value="@Html.DisplayFor(model => model.CardExpiry)">
-                </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        @*<input asp-for="CardCvv" class="form-control" />*@
-                        <Input type="number" class="form-control" name="CardCvv" aria-describedby="CardCvv" placeholder="CVV" value="@Html.DisplayFor(model => model.CardCvv)">
-                        <span asp-validation-for="CardCvv" class="text-danger"></span>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Payment Details</h5>
+                <div class="row">
+                    <div class="col">
+                        <label for="CardType" class="">Credit Card Type</label>
                     </div>
-                    @*<Input type="number" class="form-control" name="CardCvv" aria-describedby="CardCvv" placeholder="CVV" value="@Html.DisplayFor(model => model.CardCvv)">*@
+                    <div class="col">
+                        <input type="radio" class="form-control" style="height:15px; width:15px;" checked name="CardTypeBtn" aria-describedby="CardType" placeholder="CardType" value="@Html.DisplayFor(model => model.FirstName)">
+                        <label for="CardTypeVisa">Visa</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" class="form-control" style="height:15px; width:15px;" name="CardTypeBtn" aria-describedby="CardTypeMaster" placeholder="CardType" value="@Html.DisplayFor(model => model.FirstName)">
+                        <label for="CardTypeMaster">Master</label>
+                    </div>
+                    <div class="col">
+                        <input type="radio" class="form-control" style="height:15px; width:15px;" name="CardTypeBtn" aria-describedby="CardTypeAmex" placeholder="CardType" value="@Html.DisplayFor(model => model.FirstName)">
+                        <label for="CardTypeMaster">American Express</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="CardNum" class="pl-2">Enter Card Number</label>
+                </div>
+                <div class="form-group row">
+                    <Input type="number" class="form-control  pl-2" name="CardNumber" aria-describedby="CardNumber" placeholder="# Card Number" value="@Html.DisplayFor(model => model.CardNumber)">
+                    <span asp-validation-for="CardNumber" class="text-danger"></span>
+                </div>
+                @*<Input type="number" class="form-control  pl-2" name="CardNumber" aria-describedby="CardNumber" placeholder="# Card Number" value="@Html.DisplayFor(model => model.CardNumber)">*@
+                <div class="row">
+                    <label for="CardName" class="pl-2">Name on Card</label>
+                    <Input type="text" class="form-control  pl-2" name="CardName" aria-describedby="CardName" placeholder="Name on Card" value="@Html.DisplayFor(model => model.CardName)">
+                </div>
+                <div class="row pt-2">
+                    <div class="col-6">
+                        <label for="CardFrom">Card Valid Through</label>
+                    </div>
+                    <div class="col-6">
+                        <label for="CardTo">CVV</label>
+                        @*<Input type="date" class="form-control" name="CardFrom" aria-describedby="CardFrom" placeholder="MM/YYYY" value="@Html.DisplayFor(model => model.FirstName)">*@
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <Input type="date" class="form-control" name="CardExpiry" aria-describedby="CardExpiry" placeholder="MM/YYYY" value="@Html.DisplayFor(model => model.CardExpiry)">
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            @*<input asp-for="CardCvv" class="form-control" />*@
+                            <Input type="number" class="form-control" name="CardCvv" aria-describedby="CardCvv" placeholder="CVV" value="@Html.DisplayFor(model => model.CardCvv)">
+                            <span asp-validation-for="CardCvv" class="text-danger"></span>
+                        </div>
+                        @*<Input type="number" class="form-control" name="CardCvv" aria-describedby="CardCvv" placeholder="CVV" value="@Html.DisplayFor(model => model.CardCvv)">*@
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
-    
-</div>
     <div class="row pt-4">
         <div class="col-10">
-
+            <input type="hidden" name="FirstName" value="@Html.DisplayFor(model => model.FirstName)" />
+            <input type="hidden" name="LastName" value="@Html.DisplayFor(model => model.LastName)" />
+            <input type="hidden" name="Phone" value="@Html.DisplayFor(model => model.Phone)" />
+            <input type="hidden" name="EmailId" value="@Html.DisplayFor(model => model.EmailId)" />
+            <input type="hidden" name="Addr1" value="@Html.DisplayFor(model => model.Addr1)" />
+            <input type="hidden" name="Addr2" value="@Html.DisplayFor(model => model.Addr2)" />
+            <input type="hidden" name="City" value="@Html.DisplayFor(model => model.City)" />
+            <input type="hidden" name="Province" value="@Html.DisplayFor(model => model.Province)" />
+            <input type="hidden" name="Country" value="@Html.DisplayFor(model => model.Country)" />
+            <input type="hidden" name="StartDate" value="@Html.DisplayFor(model => model.StartDate)" />
+            <input type="hidden" name="EndDate" value="@Html.DisplayFor(model => model.EndDate)" />
+            <input type="hidden" name="EquipmentDet" value="@Html.DisplayFor(model => model.EquipmentDet)" />
         </div>
         <div class="col text-right">
             <button type="submit" class="btn btn-primary">Confirm</button>

@@ -15,5 +15,7 @@ namespace GameSureWebApp.Models
         public string TxnStatus { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
         public GameSureWebAppUser GameSureWebAppUser { get; set; }
+        public ICollection<TransactionDet> transactionDets { get; set; }
+
     }
 }
