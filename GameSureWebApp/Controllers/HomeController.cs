@@ -10,7 +10,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-
+using GameSureWebApp.Models.ViewModels;
 
 namespace GameSureWebApp.Controllers
 {
@@ -49,9 +49,21 @@ namespace GameSureWebApp.Controllers
         
         public IActionResult UserForm()
         {
+
             return View();
         }
+        public IActionResult UserPreview(UserForm userForm)
+        {
+            if (ModelState.IsValid)
+            {
+                return View(userForm);
+            }
+            else
+            {
+                return View("UserForm", userForm);
+            }
 
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

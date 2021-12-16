@@ -4,14 +4,16 @@ using GameSureWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GameSureWebApp.Migrations
 {
     [DbContext(typeof(GameSureDBContext))]
-    partial class GameSureAuthDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211215234156_updatedDatabaseTablesandaddedAddress")]
+    partial class updatedDatabaseTablesandaddedAddress
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,41 +97,6 @@ namespace GameSureWebApp.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("GameSureWebApp.Models.Address", b =>
-                {
-                    b.Property<int>("AddressID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Address2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GameSureWebAppUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Province")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Zipcode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("AddressID");
-
-                    b.HasIndex("GameSureWebAppUserId");
-
-                    b.ToTable("Addresses");
-                });
-
             modelBuilder.Entity("GameSureWebApp.Models.PaymentMethod", b =>
                 {
                     b.Property<int>("PayId")
@@ -196,16 +163,17 @@ namespace GameSureWebApp.Migrations
 
             modelBuilder.Entity("GameSureWebApp.Models.TransactionDet", b =>
                 {
-                    b.Property<int>("TxnDetId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("TxnDetNo")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EquipmentDet")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductProdId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
@@ -216,7 +184,9 @@ namespace GameSureWebApp.Migrations
                     b.Property<int?>("TransactionTxnId")
                         .HasColumnType("int");
 
-                    b.HasKey("TxnDetId");
+                    b.HasKey("TxnDetNo");
+
+                    b.HasIndex("ProductProdId");
 
                     b.HasIndex("TransactionTxnId");
 
@@ -358,15 +328,6 @@ namespace GameSureWebApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("GameSureWebApp.Models.Address", b =>
-                {
-                    b.HasOne("GameSureWebApp.Areas.Identity.Data.GameSureWebAppUser", "GameSureWebAppUser")
-                        .WithMany()
-                        .HasForeignKey("GameSureWebAppUserId");
-
-                    b.Navigation("GameSureWebAppUser");
-                });
-
             modelBuilder.Entity("GameSureWebApp.Models.Transaction", b =>
                 {
                     b.HasOne("GameSureWebApp.Areas.Identity.Data.GameSureWebAppUser", "GameSureWebAppUser")
@@ -384,9 +345,17 @@ namespace GameSureWebApp.Migrations
 
             modelBuilder.Entity("GameSureWebApp.Models.TransactionDet", b =>
                 {
-                    b.HasOne("GameSureWebApp.Models.Transaction", null)
-                        .WithMany("transactionDets")
+                    b.HasOne("GameSureWebApp.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductProdId");
+
+                    b.HasOne("GameSureWebApp.Models.Transaction", "Transaction")
+                        .WithMany()
                         .HasForeignKey("TransactionTxnId");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -438,11 +407,6 @@ namespace GameSureWebApp.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("GameSureWebApp.Models.Transaction", b =>
-                {
-                    b.Navigation("transactionDets");
                 });
 #pragma warning restore 612, 618
         }

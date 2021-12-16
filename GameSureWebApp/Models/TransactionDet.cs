@@ -9,14 +9,11 @@ namespace GameSureWebApp.Models
     public class TransactionDet
     {
         [Key]
-        public string TxnDetNo { get; set; }
+        public int TxnDetId { get; set; }
         public string EquipmentDet { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-
         public int TotalPrice { get; set; }
-        public Product Product { get; set; }
-        public Transaction Transaction { get; set; }
 
 
     }

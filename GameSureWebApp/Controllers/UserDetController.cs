@@ -65,13 +65,13 @@ namespace GameSureWebApp.Controllers
         //}
         public IActionResult UserPreview(UserForm userForm)
         {
-            if(validation.isValidName(userForm.FirstName))
+            if(ModelState.IsValid)
             {
                 return View(userForm);
             }
             else
             {
-                return View();
+                return RedirectToAction("UserForm","Home",userForm);
             }
            
         }
