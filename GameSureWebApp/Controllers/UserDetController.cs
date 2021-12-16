@@ -7,11 +7,19 @@ using System.Threading.Tasks;
 using GameSureWebApp.Areas.Identity.Data;
 using GameSureWebApp.Models;
 using GameSureWebApp.Models.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using GameSureWebApp.Controllers;
 
 namespace GameSureWebApp.Controllers
 {
     public class UserDetController : Controller
     {
+        private readonly SignInManager<GameSureWebAppUser> _signInManager;
+
+        public UserDetController(SignInManager<GameSureWebAppUser> signInManager)
+        {
+            _signInManager = signInManager;
+        }
         // GET: UserDetController
         public ActionResult Index()
         {
@@ -46,12 +54,26 @@ namespace GameSureWebApp.Controllers
             }
         }
         [HttpPost]
-        public ActionResult UserPreview(UserForm userForm)
+        //public ActionResult UserPreview(UserForm userForm)
+        //{
+        //    if (_signInManager.IsSignedIn(User))
+        //    {
+        //        return View(userForm);
+        //    }
+        //    else
+        //        return RedirectToAction("Login","Account");
+        //}
+        public IActionResult UserPreview(UserForm userForm)
         {
-
-
-            return View(userForm);
-            
+            if(ModelState.IsValid)
+            {
+                return View(userForm);
+            }
+            else
+            {
+                return RedirectToAction("UserForm","Home",userForm);
+            }
+           
         }
         // GET: UserDetController/Edit/5
         public ActionResult Edit(int id)

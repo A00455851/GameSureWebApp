@@ -4,14 +4,16 @@ using GameSureWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GameSureWebApp.Migrations
 {
     [DbContext(typeof(GameSureDBContext))]
-    partial class GameSureAuthDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211216011057_modifiedTransactionTable")]
+    partial class modifiedTransactionTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -196,10 +198,8 @@ namespace GameSureWebApp.Migrations
 
             modelBuilder.Entity("GameSureWebApp.Models.TransactionDet", b =>
                 {
-                    b.Property<int>("TxnDetId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("TxnDetNo")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
@@ -216,7 +216,7 @@ namespace GameSureWebApp.Migrations
                     b.Property<int?>("TransactionTxnId")
                         .HasColumnType("int");
 
-                    b.HasKey("TxnDetId");
+                    b.HasKey("TxnDetNo");
 
                     b.HasIndex("TransactionTxnId");
 

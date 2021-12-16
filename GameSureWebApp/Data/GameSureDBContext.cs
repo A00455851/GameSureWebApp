@@ -21,6 +21,7 @@ namespace GameSureWebApp.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<TransactionDet> TransactionDets { get; set; }
         public DbSet<PaymentMethod> Payments { get; set; }
+        public DbSet<Address> Addresses { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

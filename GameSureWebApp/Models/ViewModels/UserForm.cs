@@ -1,48 +1,61 @@
 ﻿using System;
+
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using GameSureWebApp.Controllers;
+using System.Linq;
+using System.Threading.Tasks;
+using GameSureWebApp.Areas.Identity.Data;
+using GameSureWebApp.Models;
 
 
 namespace GameSureWebApp.Models.ViewModels
 {
     public class UserForm
     {
-        [Required]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage ="Please enter a valid first name - lowercase/Uppercase English Alphabets allowed. ")]
+        [Required(ErrorMessage ="First Name is required")]
         public string FirstName { get; set; }
-        [Required]
-        [RegularExpression(@"^[a-zA-Z]\s+$", ErrorMessage = "Please enter a valid last name - lowercase/Uppercase English Alphabets allowed. ")]
+        [Required(ErrorMessage ="Last Name is required")]
         public string LastName { get; set; }
-        [Required]
-        [emailValidator(ErrorMessage ="Please enter a valid email.")]
+        [Required(ErrorMessage="Email Id is required")]
         public string EmailId { get; set; }
-        [Required]
-        [StringLength(10)]
-        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage = "Please enter a valid phone number. ")]
+        [Required(ErrorMessage ="Phone number is required")]
         public int Phone { get; set; }
-        [Required]
-        [RegularExpression(@"^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$", ErrorMessage = "Please enter a valid address. ")]
+        [Required(ErrorMessage ="Address line 1 is required")]
+
         public string Addr1 { get; set; }
         [Required]
         [RegularExpression(@"^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$", ErrorMessage = "Please enter a valid address. ")]
         public string Addr2 { get; set; }
-        [Required]
-        [RegularExpression(@"^[a-zA-Z]\s+$", ErrorMessage = "Please enter a valid city name - lowercase/Uppercase English Alphabets allowed. ")]
+
+        [Required(ErrorMessage ="City is required")]
         public string City { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Province is required")]
         public Province Province { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Zip Code is required")]
+        public string Zipcode { get; set; }
+        [Required(ErrorMessage ="Country is required")]
         public Country Country { get; set; }
-        [Required]
-        [zipCodeValidator("Country")]
-        public string ZipCode { get; set; }
-        [Required]
-        [RegularExpression(@"^([12] [0-9]|3[01])[- /.] (0[1-9]|1[012])[- /.] (19|20)\d\d$", ErrorMessage = "Please enter a date in MM-YYYY format.")]
+        [Required(ErrorMessage ="Start Date is required")]
         public DateTime StartDate { get; set; }
-        [Required]
-        [RegularExpression(@"^([12] [0-9]|3[01])[- /.] (0[1-9]|1[012])[- /.] (19|20)\d\d$", ErrorMessage = "Please enter a date in MM-YYYY format.")]
-        [dateGreaterThan("StartDate")]
+        [Required(ErrorMessage = "End Date is required")]
+
         public DateTime EndDate { get; set; }
+        [Required(ErrorMessage ="Card Number is required")]
+        [StringLength(16,ErrorMessage ="Card length cannot exceed 16 digits")]
+        [RegularExpression(@"^([0-9]{16})$",ErrorMessage ="Invalid card number format")]
+        public string CardNumber { get; set; }
+        [Required(ErrorMessage = "Card name not valid")]
+        public string CardName { get; set; }
+        [Required(ErrorMessage = "Card type is required")]
+        public string CardType { get; set; }
+        [Required(ErrorMessage = "Card Expiry date is required")]
+        public DateTime CardExpiry { get; set; }
+        [StringLength(3,ErrorMessage = "CVV cannot exceed 3 digits")]
+        [RegularExpression(@"^([0-9]{16})$", ErrorMessage = "Invalid card CVV format")]
+        public string CardCvv { get; set; }
+        //[Required(ErrorMessage = "Equipment detail is required")]
+        public string EquipmentDet { get; set; }
+
 
     }
 }
