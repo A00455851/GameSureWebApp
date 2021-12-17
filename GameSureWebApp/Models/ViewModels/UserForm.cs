@@ -72,7 +72,7 @@ namespace GameSureWebApp.Models.ViewModels
         [StringLength(3,ErrorMessage = "CVV cannot exceed 3 digits")]
         [RegularExpression(@"^([0-9]{3})$",ErrorMessage = "Please enter a valid CVV")]
         public string CardCvv { get; set; }
-        //[Required(ErrorMessage = "Equipment detail is required")]
+        [Required(ErrorMessage = "Equipment detail is required")]
         public string EquipmentDet { get; set; }
 
 
