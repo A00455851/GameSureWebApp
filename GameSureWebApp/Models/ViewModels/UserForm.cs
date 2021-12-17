@@ -33,9 +33,9 @@ namespace GameSureWebApp.Models.ViewModels
         public DateTime StartDate { get; set; }
         [Required(ErrorMessage = "End Date is required")]
         public DateTime EndDate { get; set; }
-        [Required(ErrorMessage ="Card Number is required")]
-        [StringLength(16,ErrorMessage ="Card length cannot exceed 16 digits")]
-        [RegularExpression(@"^([0-9]{16})$",ErrorMessage ="Invalid card number format")]
+        //[Required(ErrorMessage ="Card Number is required")]
+        //[StringLength(16,ErrorMessage ="Card length cannot exceed 16 digits")]
+        //[RegularExpression(@"^([0-9]{16})$",ErrorMessage ="Invalid card number format")]
         public string CardNumber { get; set; }
         [Required(ErrorMessage = "Card name not valid")]
         public string CardName { get; set; }
@@ -43,10 +43,12 @@ namespace GameSureWebApp.Models.ViewModels
         public string CardType { get; set; }
         [Required(ErrorMessage = "Card Expiry date is required")]
         public DateTime CardExpiry { get; set; }
-        [StringLength(3,ErrorMessage = "CVV cannot exceed 3 digits")]
-        [RegularExpression(@"^([0-9]{16})$", ErrorMessage = "Invalid card CVV format")]
+        //[StringLength(3,ErrorMessage = "CVV cannot exceed 3 digits")]
+        //[RegularExpression(@"^([0-9]{16})$", ErrorMessage = "Invalid card CVV format")]
+        [RegularExpression(@"^([0-9]{3})$",
+        ErrorMessage = "Please enter a valid CVV")]
         public string CardCvv { get; set; }
-        //[Required(ErrorMessage = "Equipment detail is required")]
+        [Required(ErrorMessage = "Equipment detail is required")]
         public string EquipmentDet { get; set; }
 
 
