@@ -20,13 +20,16 @@ namespace GameSureWebApp.Controllers
         {
             //var propertyInfo = validationContext.ObjectType.GetProperty(_countryPropertyName.ToString());
             //var propertyValue = propertyInfo.GetValue(validationContext.ObjectInstance, null);
+            if (value == null)
+                return new ValidationResult("There is an error in zipCode.");
             string zipCode = value.ToString();
-            if (_countryPropertyName == Models.Country.United_States)
+            if (true || _countryPropertyName == Models.Country.United_States)
             {
                 if (string.IsNullOrWhiteSpace(zipCode))
                     return new ValidationResult("There is an error in zipCode."); ;
                 var _usZipRegEx = @"^\d{5}(?:[-\s]\d{4})?$";
-                if ((!Regex.Match(zipCode, _usZipRegEx).Success))
+                var _caZipRegEx = @"^([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9])$";
+                if ((!Regex.Match(zipCode, _usZipRegEx).Success)|| (!Regex.Match(zipCode, _caZipRegEx).Success))
                 {
                     return new ValidationResult("There is an error in zipCode.");
                 }

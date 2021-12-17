@@ -19,8 +19,8 @@ namespace GameSureWebApp.Controllers
             var propertyValue = propertyInfo.GetValue(validationContext.ObjectInstance, null);
             CultureInfo provider = CultureInfo.InvariantCulture;
 
-            DateTime endDate = DateTime.ParseExact((string)value, "MM-yyyy", provider);
-            DateTime startDate = DateTime.ParseExact((string)propertyValue, "MM-yyyy", provider);
+            DateTime endDate = (DateTime)value;// DateTime.ParseExact((string)value, "dd/MM/yyyy", provider);
+            DateTime startDate = (DateTime)propertyValue;// DateTime.ParseExact((string)propertyValue, "dd/MM/yyyy", provider);
 
             if (endDate > startDate)
             {
@@ -28,7 +28,7 @@ namespace GameSureWebApp.Controllers
             }
             else
             {
-                return new ValidationResult("There is an error.");
+                return new ValidationResult("Start date cannot exceed End Date.");
             }
         }
     }

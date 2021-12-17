@@ -51,9 +51,8 @@
                 <label for="Phone">Phone Number</label>
             </div>
             <div class="col-5">
-                <input asp-for="Phone" type="number" class="form-control" name="Phone" aria-describedby="Phone" placeholder="Phone Number">@*value="@Html.DisplayFor(model => model.Phone)"*@
+                <input asp-for="Phone" type="text" class="form-control" name="Phone" aria-describedby="Phone" placeholder="Phone Number">@*value="@Html.DisplayFor(model => model.Phone)"*@
                 <span asp-validation-for="Phone" class="text-danger"></span>
-
             </div>
         </div>
     </div>
@@ -115,6 +114,17 @@
     <div class="form-group">
         <div class="row">
             <div class="col-2">
+                <label for="Zipcode">Zipcode</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Zipcode" type="text" class="form-control" name="Zipcode" aria-describedby="Zipcode" placeholder="Zipcode"> @*value="@Html.DisplayFor(model => model.Zipcode)"*@
+                <span asp-validation-for="Zipcode" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
                 <label for="StartDate">Policy Start Date</label>
             </div>
             <div class="col-5">
@@ -136,13 +146,5 @@
             </div>
         </div>
     </div>
-    <input type="text" name="EquipmentDet" value="1" />
-    <input type="text" name="CardNumber" value="0000000000000000000000" />
-    <input type="text" name="CardName" value="asasa" />
-    <input type="text" name="CardType" value="asas" />
-    <input type="text" name="CardExpiry" value="01-01-2019" />
-    <input type="text" name="CardCvv" value=" 111" />
-    <input type="text" name="Zipcode" value="asasa" />
-
     <button type="submit" class="btn btn-primary">Next</button>
 }
