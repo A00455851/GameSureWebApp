@@ -9,6 +9,8 @@ namespace GameSureWebApp.Controllers
     {
         public override bool IsValid(object value)
         {
+            if (value==null)
+                return false;
             var email = value.ToString();
 
             if (string.IsNullOrWhiteSpace(email))
