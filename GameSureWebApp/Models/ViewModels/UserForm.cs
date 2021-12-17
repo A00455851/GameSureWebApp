@@ -70,7 +70,7 @@ namespace GameSureWebApp.Models.ViewModels
         [Required(ErrorMessage = "Card Expiry date is required")]
         public DateTime CardExpiry { get; set; }
         [StringLength(3,ErrorMessage = "CVV cannot exceed 3 digits")]
-        [RegularExpression(@"^([0-9]{16})$", ErrorMessage = "Invalid card CVV format")]
+        [RegularExpression(@"^([0-9]{3})$",ErrorMessage = "Please enter a valid CVV")]
         public string CardCvv { get; set; }
         //[Required(ErrorMessage = "Equipment detail is required")]
         public string EquipmentDet { get; set; }
