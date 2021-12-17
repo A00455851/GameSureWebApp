@@ -51,9 +51,8 @@
                 <label for="Phone">Phone Number</label>
             </div>
             <div class="col-5">
-                <input asp-for="Phone" type="number" class="form-control" name="Phone" aria-describedby="Phone" placeholder="Phone Number">@*value="@Html.DisplayFor(model => model.Phone)"*@
+                <input asp-for="Phone" type="text" class="form-control" name="Phone" aria-describedby="Phone" placeholder="Phone Number">@*value="@Html.DisplayFor(model => model.Phone)"*@
                 <span asp-validation-for="Phone" class="text-danger"></span>
-
             </div>
         </div>
     </div>
@@ -109,7 +108,17 @@
             <div class="col-5">
                 <select asp-for="Country" asp-items="Html.GetEnumSelectList<Country>() " class="form-control" name="Country-describedby=" Country placeholder="Province/State"></select>@*value="@Html.DisplayFor(model => model.Country)"*@
                 <span asp-validation-for="Country" class="text-danger"></span>
-
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="Zipcode">Zipcode</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Zipcode" type="text" class="form-control" name="Zipcode" aria-describedby="Zipcode" placeholder="Zipcode"> @*value="@Html.DisplayFor(model => model.Zipcode)"*@
+                <span asp-validation-for="Zipcode" class="text-danger"></span>
             </div>
         </div>
     </div>
