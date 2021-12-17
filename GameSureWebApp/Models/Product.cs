@@ -10,6 +10,8 @@ namespace GameSureWebApp.Models
     {
         [Key]
         public int ProdId { get; set; }
+
+        public string ProdPlan { get; set; }
         public string Ptype { get; set; }
         public int Price { get; set; }
         public string PDescription { get; set; }
