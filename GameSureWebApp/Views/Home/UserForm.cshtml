@@ -12,162 +12,166 @@
 </style>
 
 
-<div class="flex-column p-2 align-items-center">
-    <h1 class="">Customer Details</h1>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="FirstName">First Name</label>
-        </div>
-        <div class="form-group col-5">
-            <input asp-for="FirstName" type="text" class="form-control" placeholder="First Name">@*value="@Html.DisplayFor(model => model.FirstName)"*@
-            <span asp-validation-for="FirstName" class="text-danger"></span>
+{
+    <div class="flex-column p-2 align-items-center">
+        <h1 class="">Customer Details</h1>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="FirstName">First Name</label>
+            </div>
+            <div class="form-group col-5">
+                <input asp-for="FirstName" type="text" class="form-control" placeholder="First Name">@*value="@Html.DisplayFor(model => model.FirstName)"*@
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="LastName">Last Name</label>
-        </div>
-        <div class="col-5">
-            <input asp-for="LastName" type="text" class="form-control" name="LastName" aria-describedby="LastName" placeholder="Last Name">@*value="@Html.DisplayFor(model => model.LastName)"*@
-            <span asp-validation-for="LastName" class="text-danger"></span>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="LastName">Last Name</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="LastName" type="text" class="form-control" name="LastName" aria-describedby="LastName" placeholder="Last Name">@*value="@Html.DisplayFor(model => model.LastName)"*@
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="EmailId">Email address</label>
-        </div>
-        <div class="col-5">
-            <input asp-for="EmailId" type="email" class="form-control" name="EmailId" aria-describedby="EmailId" placeholder="Enter email" /> @*value="@Html.DisplayFor(model => model.EmailId)">*@
-            <span asp-validation-for="EmailId" class="text-danger"></span>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="EmailId">Email address</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="EmailId" type="email" class="form-control" name="EmailId" aria-describedby="EmailId" placeholder="Enter email" /> @*value="@Html.DisplayFor(model => model.EmailId)">*@
+                <span asp-validation-for="EmailId" class="text-danger"></span>
 
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="Phone">Phone Number</label>
-        </div>
-        <div class="col-5">
-            <input asp-for="Phone" type="text" class="form-control" name="Phone" aria-describedby="Phone" placeholder="Phone Number">@*value="@Html.DisplayFor(model => model.Phone)"*@
-            <span asp-validation-for="Phone" class="text-danger"></span>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="Phone">Phone Number</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Phone" type="text" class="form-control" name="Phone" aria-describedby="Phone" placeholder="Phone Number">@*value="@Html.DisplayFor(model => model.Phone)"*@
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="Addr1">Address Line 1</label>
-        </div>
-        <div class="col-5">
-            <input asp-for="Addr1" type="text" class="form-control" name="Addr1" aria-describedby="Addr1" placeholder="Address Line 1"> @*value="@Html.DisplayFor(model => model.Addr1)"*@
-            <span asp-validation-for="Addr1" class="text-danger"></span>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="Addr1">Address Line 1</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Addr1" type="text" class="form-control" name="Addr1" aria-describedby="Addr1" placeholder="Address Line 1"> @*value="@Html.DisplayFor(model => model.Addr1)"*@
+                <span asp-validation-for="Addr1" class="text-danger"></span>
 
+            </div>
         </div>
-    </div>
-</div><div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="Addr2">Address Line 2</label>
+    </div><div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="Addr2">Address Line 2</label>
+            </div>
+            <div class="col-5">
+                <input type="text" class="form-control" name="Addr2" aria-describedby="Addr2" placeholder="Address Line 2" value="@Html.DisplayFor(model => model.Addr2)">
+            </div>
         </div>
-        <div class="col-5">
-            <input type="text" class="form-control" name="Addr2" aria-describedby="Addr2" placeholder="Address Line 2" value="@Html.DisplayFor(model => model.Addr2)">
-        </div>
-    </div>
-</div><div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="City">City</label>
-        </div>
-        <div class="col-5">
-            <input asp-for="City" type="text" class="form-control" name="City" aria-describedby="City" placeholder="City">@*value="@Html.DisplayFor(model => model.City)"*@
-            <span asp-validation-for="City" class="text-danger"></span>
+    </div><div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="City">City</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="City" type="text" class="form-control" name="City" aria-describedby="City" placeholder="City">@*value="@Html.DisplayFor(model => model.City)"*@
+                <span asp-validation-for="City" class="text-danger"></span>
 
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="Province">Province/State</label>
-        </div>
-        <div class="col-5">
-            <select asp-for="Province" asp-items="Html.GetEnumSelectList<Province>() " class="form-control" name="Province" aria-describedby="Province" placeholder="Province/State"></select>@*value="@Html.DisplayFor(model => model.Province)"*@
-            <span asp-validation-for="Province" class="text-danger"></span>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="Province">Province/State</label>
+            </div>
+            <div class="col-5">
+                <select asp-for="Province" asp-items="Html.GetEnumSelectList<Province>() " class="form-control" name="Province" aria-describedby="Province" placeholder="Province/State"></select>@*value="@Html.DisplayFor(model => model.Province)"*@
+                <span asp-validation-for="Province" class="text-danger"></span>
 
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="Country">Country</label>
-        </div>
-        <div class="col-5">
-            <select asp-for="Country" asp-items="Html.GetEnumSelectList<Country>() " class="form-control" name="Country-describedby=" Country placeholder="Province/State"></select>@*value="@Html.DisplayFor(model => model.Country)"*@
-            <span asp-validation-for="Country" class="text-danger"></span>
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="Zipcode">Zipcode</label>
-        </div>
-        <div class="col-5">
-            <input asp-for="Zipcode" type="text" class="form-control" name="Zipcode" aria-describedby="Zipcode" placeholder="Zipcode"> @*value="@Html.DisplayFor(model => model.Zipcode)"*@
-            <span asp-validation-for="Zipcode" class="text-danger"></span>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="Country">Country</label>
+            </div>
+            <div class="col-5">
+                <select asp-for="Country" asp-items="Html.GetEnumSelectList<Country>() " class="form-control" name="Country-describedby=" Country placeholder="Province/State"></select>@*value="@Html.DisplayFor(model => model.Country)"*@
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="EquipmentDet">Equipment Details</label>
-        </div>
-        <div class="form-group col-5">
-            <input asp-for="EquipmentDet" type="text" class="form-control" placeholder="Equipment Details">@*value="@Html.DisplayFor(model => model.FirstName)"*@
-            <span asp-validation-for="EquipmentDet" class="text-danger"></span>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="Zipcode">Zipcode</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Zipcode" type="text" class="form-control" name="Zipcode" aria-describedby="Zipcode" placeholder="Zipcode"> @*value="@Html.DisplayFor(model => model.Zipcode)"*@
+                <span asp-validation-for="Zipcode" class="text-danger"></span>
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="StartDate">Policy Start Date</label>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="EquipmentDet">Equipment Details</label>
+            </div>
+            <div class="form-group col-5">
+                <input asp-for="EquipmentDet" type="text" class="form-control" placeholder="Equipment Details">@*value="@Html.DisplayFor(model => model.FirstName)"*@
+                <span asp-validation-for="EquipmentDet" class="text-danger"></span>
+            </div>
         </div>
-        <div class="col-5">
-            <input asp-for="StartDate" type="date" class="form-control" name="StartDate" aria-describedby="StartDate" placeholder="Policy Start Date"> @*value="@Html.DisplayFor(model => model.StartDate)"*@
-            <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="StartDate">Policy Start Date</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="StartDate" type="date" class="form-control" name="StartDate" aria-describedby="StartDate" placeholder="Policy Start Date"> @*value="@Html.DisplayFor(model => model.StartDate)"*@
+                <span asp-validation-for="StartDate" class="text-danger"></span>
 
+            </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="EndDate">Policy End Date</label>
-        </div>
-        <div class="col-5">
-            <input asp-for="EndDate" type="date" class="form-control" name="EndDate" aria-describedby="EndDate" placeholder="Policy End Date">@*value="@Html.DisplayFor(model => model.EndDate)"*@
-            <span asp-validation-for="EndDate" class="text-danger"></span>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="EndDate">Policy End Date</label>
+            </div>
+            <div class="col-5">
+                <input asp-for="EndDate" type="date" class="form-control" name="EndDate" aria-describedby="EndDate" placeholder="Policy End Date">@*value="@Html.DisplayFor(model => model.EndDate)"*@
+                <span asp-validation-for="EndDate" class="text-danger"></span>
 
+            </div>
         </div>
     </div>
-</div>
 
-<input type="hidden" name="EquipmentDet" value="1" />
-<input type="hidden" name="CardNumber" value="5151551515151511" />
-<input type="hidden" name="CardName" value="asasa" />
-<input type="hidden" name="CardType" value="Master" />
-<input type="hidden" name="CardExpiry" value="01-01-2019" />
-<input type="hidden" name="CardCvv" value="111" />
-@*<input type="hidden" name="Zipcode" value="asasa" />*@
-<input type="hidden" name="ProdPlan" value="@Html.DisplayFor(model => model.ProdPlan)" />
-<button type="submit" class="btn btn-primary">Next</button>
+    //<input type="hidden" name="EquipmentDet" value="1" />
+    <input type="hidden" name="CardNumber" value="5151551515151511" />
+    <input type="hidden" name="CardName" value="asasa" />
+    <input type="hidden" name="CardType" value="Master" />
+    <input type="hidden" name="CardExpiry" value="01-01-2019" />
+    <input type="hidden" name="CardCvv" value="111" />
+    @*<input type="hidden" name="Zipcode" value="asasa" />*@
+    <input type="hidden" name="ProdPlan" value="@Html.DisplayFor(model => model.ProdPlan)" />
+    <input type="hidden" name="ProdPrice" value="@Html.DisplayFor(model => model.ProdPrice)" />
+
+    <button type="submit" class="btn btn-primary">Next</button>
+}

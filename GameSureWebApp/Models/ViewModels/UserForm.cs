@@ -84,6 +84,8 @@ namespace GameSureWebApp.Models.ViewModels
 
         public string ProdPlan { get; set; }
 
+        public string ProdPrice { get; set; }
+
 
     }
 }
