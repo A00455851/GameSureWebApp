@@ -10,7 +10,14 @@
         <div class="card" style="max-width: 18rem;">
             <div class="card-body text-white bg-primary mb-3">
                 <h5 class="card-title">Payment Summary</h5>
-                <p class="card-text">Your total purchase is: $XX</p>
+                <div class="row">
+                <div class="col-5">
+                    <label class="card-text">Your total purchase is: </label>
+                    </div>
+                    <div class="col-1">
+                        <label class="card-text font-weight-bold text-warning" >$@Model.ProdPrice</label>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card">
@@ -87,6 +94,8 @@
             <input type="hidden" name="EquipmentDet" value="@Html.DisplayFor(model => model.EquipmentDet)" />
             <input type="hidden" name="ProdPlan" value="@Html.DisplayFor(model => model.ProdPlan)" />
             <input type="hidden" name="Zipcode" value="@Html.DisplayFor(model => model.Zipcode)" />
+            <input type="hidden" name="ProdPrice" value="@Html.DisplayFor(model => model.ProdPrice)" />
+
 
         </div>
         <div class="col text-right">

@@ -35,6 +35,7 @@
                         @using (Html.BeginForm("UserForm", "Home", FormMethod.Get))
                         {
                             <input type="hidden" name="ProdPlan" value="@item.ProdPlan" />
+                            <input type="hidden" name="ProdPrice" value="@item.Price" />
                             <button type="submit">Buy now</button>
                         }
                     </td>

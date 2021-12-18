@@ -12,160 +12,161 @@
     }
 </style>
 
-<div class="flex-column p-2 align-items-center">
-    <h1 class="">Preview Details</h1>
-</div>
-<div class="form-group">
+{
+    <div class="flex-column p-2 align-items-center">
+        <h1 class="">Preview Details</h1>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2 pt-1">
+                <label for="FirstName">First Name :</label>
+            </div>
+            <div class="col-5">
+                <input type="text" readonly class="form-control-plaintext font-weight-bold" name="FirstName" aria-describedby="FirstName" placeholder="First Name" value="@Html.DisplayFor(model => model.FirstName)">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2 pt-1">
+                <label for="LastName">Last Name :</label>
+            </div>
+            <div class="col-5">
+                <input type="text" readonly class="form-control-plaintext font-weight-bold" name="LastName" aria-describedby="LastName" placeholder="Last Name" value="@Html.DisplayFor(model => model.LastName)">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2 pt-1">
+                <label for="EmailId">Email address :</label>
+            </div>
+            <div class="col-5">
+                <input type="email" readonly class="form-control-plaintext font-weight-bold" name="EmailId" aria-describedby="EmailId" placeholder="Enter email" value="@Html.DisplayFor(model => model.EmailId)">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2 pt-1">
+                <label for="Phone">Phone Number :</label>
+            </div>
+            <div class="col-5">
+                <input type="number" readonly class="form-control-plaintext font-weight-bold" name="Phone" aria-describedby="Phone" placeholder="Phone Number" value="@Html.DisplayFor(model => model.Phone)">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2 pt-1">
+                <label for="Addr1">Address Line 1 :</label>
+            </div>
+            <div class="col-5">
+                <input type="text" readonly class="form-control-plaintext font-weight-bold" name="Addr1" aria-describedby="Addr1" placeholder="Address Line 1" value="@Html.DisplayFor(model => model.Addr1)">
+            </div>
+        </div>
+    </div><div class="form-group">
+        <div class="row">
+            <div class="col-2 pt-1">
+                <label for="Addr2">Address Line 2 :</label>
+            </div>
+            <div class="col-5">
+                <input type="text" readonly class="form-control-plaintext font-weight-bold" name="Addr2" aria-describedby="Addr2" placeholder="Address Line 2" value="@Html.DisplayFor(model => model.Addr2)">
+            </div>
+        </div>
+    </div><div class="form-group">
+        <div class="row">
+            <div class="col-2 pt-1">
+                <label for="City">City :</label>
+            </div>
+            <div class="col-5">
+                <input type="text" readonly class="form-control-plaintext font-weight-bold" name="City" aria-describedby="City" placeholder="City" value="@Html.DisplayFor(model => model.City)">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2 pt-1">
+                <label for="Province">Province/State :</label>
+            </div>
+            <div class="col-5">
+                <select asp-items="Html.GetEnumSelectList<Province>()" readonly class="form-control-plaintext font-weight-bold" name="Province" aria-describedby="Province" placeholder="Province/State" value="@Html.DisplayFor(model => model.Province)"></select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="Zipcode">Zipcode</label>
+            </div>
+            <div class="col-5">
+                <input type="text" readonly class="form-control-plaintext font-weight-bold" name="Zipcode" aria-describedby="Zipcode" placeholder="Zipcode" value="@Html.DisplayFor(model => model.Zipcode)">
+                @*<span asp-validation-for="Zipcode" class="text-danger"></span>*@
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="Country">Country</label>
+            </div>
+            <div class="col-5">
+                <select asp-items="Html.GetEnumSelectList<Country>() " readonly class="form-control-plaintext font-weight-bold" name="Country-describedby=" Country placeholder="Province/State" value="@Html.DisplayFor(model => model.Country)"></select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2">
+                <label for="EquipmentDet">Equipment Details</label>
+            </div>
+            <div class="form-group col-5">
+                <input type="text" readonly class="form-control-plaintext font-weight-bold" name="EquipmentDet" aria-describedby="EquipmentDet" placeholder="EquipmentDet" value="@Html.DisplayFor(model => model.EquipmentDet)">
+                @*<span asp-validation-for="EquipmentDet" class="text-danger"></span>*@
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2 pt-1">
+                <label for="StartDate">Policy Start Date :</label>
+            </div>
+            <div class="col-5">
+                @* <input type="text" readonly class="form-control-plaintext font-weight-bold" name="StartDate" aria-describedby="StartDate" placeholder="Policy Start Date" value="@Html.DisplayFor(model => model.StartDate.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz"))">*@
+                <label class="font-weight-bold">@Model.StartDate</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-2 pt-1">
+                <label for="EndDate">Policy End Date :</label>
+            </div>
+            <div class="col-5">
+                @*<input asp-for="EndDate" type="date" class="form-control" name="EndDate" aria-describedby="EndDate" placeholder="Policy End Date">@*@
+                @*<input asp-for="EndDate" type="date" readonly class="form-control-plaintext font-weight-bold" name="EndDate" aria-describedby="EndDate" placeholder="Policy End Date" value="@Model.EndDate.ToString("DD-MM-YYYY")">*@
+                <label class="font-weight-bold">@Model.EndDate</label>
+            </div>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-2 pt-1">
-            <label for="FirstName">First Name :</label>
+        <div class="col-6">
+            <button type="submit" class="btn btn-primary">Confirm and proceed to payment</button>
         </div>
-        <div class="col-5">
-            <input type="text" readonly class="form-control-plaintext font-weight-bold" name="FirstName" aria-describedby="FirstName" placeholder="First Name" value="@Html.DisplayFor(model => model.FirstName)">
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2 pt-1">
-            <label for="LastName">Last Name :</label>
-        </div>
-        <div class="col-5">
-            <input type="text" readonly class="form-control-plaintext font-weight-bold" name="LastName" aria-describedby="LastName" placeholder="Last Name" value="@Html.DisplayFor(model => model.LastName)">
+        <div class="col-6">
+            <a style="font-size:large" href="" onclick="window.history.go(-1); return false;">Back to Details</a>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2 pt-1">
-            <label for="EmailId">Email address :</label>
-        </div>
-        <div class="col-5">
-            <input type="email" readonly class="form-control-plaintext font-weight-bold" name="EmailId" aria-describedby="EmailId" placeholder="Enter email" value="@Html.DisplayFor(model => model.EmailId)">
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2 pt-1">
-            <label for="Phone">Phone Number :</label>
-        </div>
-        <div class="col-5">
-            <input type="number" readonly class="form-control-plaintext font-weight-bold" name="Phone" aria-describedby="Phone" placeholder="Phone Number" value="@Html.DisplayFor(model => model.Phone)">
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2 pt-1">
-            <label for="Addr1">Address Line 1 :</label>
-        </div>
-        <div class="col-5">
-            <input type="text" readonly class="form-control-plaintext font-weight-bold" name="Addr1" aria-describedby="Addr1" placeholder="Address Line 1" value="@Html.DisplayFor(model => model.Addr1)">
-        </div>
-    </div>
-</div><div class="form-group">
-    <div class="row">
-        <div class="col-2 pt-1">
-            <label for="Addr2">Address Line 2 :</label>
-        </div>
-        <div class="col-5">
-            <input type="text" readonly class="form-control-plaintext font-weight-bold" name="Addr2" aria-describedby="Addr2" placeholder="Address Line 2" value="@Html.DisplayFor(model => model.Addr2)">
-        </div>
-    </div>
-</div><div class="form-group">
-    <div class="row">
-        <div class="col-2 pt-1">
-            <label for="City">City :</label>
-        </div>
-        <div class="col-5">
-            <input type="text" readonly class="form-control-plaintext font-weight-bold" name="City" aria-describedby="City" placeholder="City" value="@Html.DisplayFor(model => model.City)">
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2 pt-1">
-            <label for="Province">Province/State :</label>
-        </div>
-        <div class="col-5">
-            <select asp-items="Html.GetEnumSelectList<Province>()" readonly class="form-control-plaintext font-weight-bold" name="Province" aria-describedby="Province" placeholder="Province/State" value="@Html.DisplayFor(model => model.Province)"></select>
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="Zipcode">Zipcode</label>
-        </div>
-        <div class="col-5">
-            <input type="text" readonly class="form-control-plaintext font-weight-bold" name="Zipcode" aria-describedby="Zipcode" placeholder="Zipcode" value="@Html.DisplayFor(model => model.Zipcode)">
-            @*<span asp-validation-for="Zipcode" class="text-danger"></span>*@
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="Country">Country</label>
-        </div>
-        <div class="col-5">
-            <select asp-items="Html.GetEnumSelectList<Country>() " readonly class="form-control-plaintext font-weight-bold" name="Country-describedby=" Country placeholder="Province/State" value="@Html.DisplayFor(model => model.Country)"></select>
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2">
-            <label for="EquipmentDet">Equipment Details</label>
-        </div>
-        <div class="form-group col-5">
-            <input type="text" readonly class="form-control-plaintext font-weight-bold" name="EquipmentDet" aria-describedby="EquipmentDet" placeholder="EquipmentDet" value="@Html.DisplayFor(model => model.EquipmentDet)">
-            @*<span asp-validation-for="EquipmentDet" class="text-danger"></span>*@
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2 pt-1">
-            <label for="StartDate">Policy Start Date :</label>
-        </div>
-        <div class="col-5">
-            @* <input type="text" readonly class="form-control-plaintext font-weight-bold" name="StartDate" aria-describedby="StartDate" placeholder="Policy Start Date" value="@Html.DisplayFor(model => model.StartDate.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz"))">*@
-            <label class="font-weight-bold">@Model.StartDate</label>
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-2 pt-1">
-            <label for="EndDate">Policy End Date :</label>
-        </div>
-        <div class="col-5">
-            @*<input asp-for="EndDate" type="date" class="form-control" name="EndDate" aria-describedby="EndDate" placeholder="Policy End Date">@*@
-            @*<input asp-for="EndDate" type="date" readonly class="form-control-plaintext font-weight-bold" name="EndDate" aria-describedby="EndDate" placeholder="Policy End Date" value="@Model.EndDate.ToString("DD-MM-YYYY")">*@
-            <label class="font-weight-bold">@Model.EndDate</label>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-6">
-        <button type="submit" class="btn btn-primary">Confirm and proceed to payment</button>
-    </div>
-    <div class="col-6">
-        <a style="font-size:large" href="" onclick="window.history.go(-1); return false;">Back to Details</a>
-    </div>
-</div>
-<input type="hidden" name="ProdPlan" value="@Html.DisplayFor(model => model.ProdPlan)" />
-<input type="hidden" name="CardNumber" value="5151551515151511" />
-<input type="hidden" name="CardName" value="asasa" />
-<input type="hidden" name="CardType" value="asas" />
-<input type="hidden" name="CardExpiry" value="01-01-2019" />
-<input type="hidden" name="EndDate" value="@Model.EndDate.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz")" />
-<input type="hidden" name="StartDate" value="@Model.StartDate.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz")" />
-
-<input type="hidden" name="CardCvv" value="111" />
-@*<input type="hidden" name="Zipcode" value="asasa" />*@
+    <input type="hidden" name="ProdPlan" value="@Html.DisplayFor(model => model.ProdPlan)" />
+    <input type="hidden" name="CardNumber" value="5151551515151511" />
+    <input type="hidden" name="CardName" value="asasa" />
+    <input type="hidden" name="CardType" value="asas" />
+    <input type="hidden" name="CardExpiry" value="01-01-2019" />
+    <input type="hidden" name="EndDate" value="@Model.EndDate.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz")" />
+    <input type="hidden" name="StartDate" value="@Model.StartDate.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz")" />
+    <input type="hidden" name="ProdPrice" value="@Html.DisplayFor(model => model.ProdPrice)" />
+    <input type="hidden" name="CardCvv" value="111" />
+    @*<input type="hidden" name="Zipcode" value="asasa" />*@
 
 
 }

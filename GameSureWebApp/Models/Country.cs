@@ -8,10 +8,7 @@ namespace GameSureWebApp.Models
     public enum Country
     {
         United_States,
-        Canada,
-        India,
-        Umited_Kingdom,
-        Spain
+        Canada    
 
     }
 }

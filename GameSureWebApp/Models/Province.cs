@@ -19,6 +19,15 @@ namespace GameSureWebApp.Models
         Prince_Edward_Island,
         Quebec,
         Saskatchewan,
-        Yukon
+        Yukon,
+        Alabama,
+        Florida,
+        Kansas,
+        Minnesota,
+        Nevada,
+        New_York,
+        Oklahoma,
+        Washington,
+        Virginia
     }
 }
