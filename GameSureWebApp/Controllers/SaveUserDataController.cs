@@ -52,7 +52,7 @@ namespace GameSureWebApp.Controllers
                 return View();
             }
         }
-        [HttpPost]
+        [HttpGet]
         public ActionResult SaveData(UserForm userForm)
         {
              
