@@ -32,7 +32,7 @@ namespace GameSureWebApp.Models.ViewModels
         [RegularExpression(@"^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$", ErrorMessage = "Please enter a valid address. ")]
         public string Addr1 { get; set; }
 
-        [RegularExpression(@"^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$", ErrorMessage = "Please enter a valid address. ")]
+        //[RegularExpression(@"^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$", ErrorMessage = "Please enter a valid address. ")]
         public string Addr2 { get; set; }
 
         [Required(ErrorMessage = "City is required")]
@@ -69,7 +69,7 @@ namespace GameSureWebApp.Models.ViewModels
         public string CardNumber { get; set; }
 
         [Required(ErrorMessage = "Card name not valid")]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please enter a valid first name - lowercase/Uppercase English Alphabets allowed. ")]
+        [RegularExpression(@"^([a-zA-Z0-9]+|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{1,}|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{3,}\s{1}[a-zA-Z0-9]{1,})$", ErrorMessage = "Please enter a valid first name - lowercase/Uppercase English Alphabets allowed. ")]
         public string CardName { get; set; }
 
         [Required(ErrorMessage = "Card Expiry date is required")]
