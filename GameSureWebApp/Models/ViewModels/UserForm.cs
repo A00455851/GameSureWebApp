@@ -44,7 +44,7 @@ namespace GameSureWebApp.Models.ViewModels
 
         [Required(ErrorMessage ="Zip Code is required")]
         //[zipCodeValidator("Country")]
-        [RegularExpression(@"^([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9])$", ErrorMessage = "Please enter a valid zip code.")]
+        [RegularExpression(@"^([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9])$|^\d{5}(?:[-\s]\d{4})?$", ErrorMessage = "Please enter a valid postal code. ")]
         public string Zipcode { get; set; }
 
         [Required(ErrorMessage ="Country is required")]

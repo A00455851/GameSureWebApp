@@ -3,9 +3,14 @@
 @{
     ViewData["Title"] = "User Preview";
 }
-@using (Html.BeginForm("SaveData", "SaveUserData", FormMethod.Post))
+@using (Html.BeginForm("SaveData", "SaveUserData", FormMethod.Post)) ;
 
-
+<style>
+    body {
+        background: url("https://upload.wikimedia.org/wikipedia/commons/d/d1/Crystal_Clear_app_package_games.svg");
+        background-size: cover;
+    }
+</style>
 {
 <div class="flex-column p-2 align-items-center">
     <h1 class="">Preview Details</h1>
@@ -123,7 +128,7 @@
         <button type="submit" class="btn btn-primary">Confirm and proceed to payment</button>
     </div>
     <div class="col-6">
-    <a style="font-size:large" href="javascript:void(0);" onclick="history.go(-1);">Back to Details</a>
+        <a style="font-size:large" href="javascript:void(0);" onclick="history.go(-1);">Back to Details</a>
     </div>
 </div>
 
