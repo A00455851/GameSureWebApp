@@ -39,18 +39,21 @@ namespace GameSureWebApp.Controllers
             return View();
         }
 
-               
-        public IActionResult UserForm()
+         [HttpGet]
+      
+        public IActionResult UserForm(UserForm userForm)
+        
         {
 
-            return View();
+            return View(userForm);
         }
+        [HttpPost]
         public IActionResult UserPreview(UserForm userForm)
         {
-            //Product product1 = new Product();
-            var product1 = _gameSureDBContext.Products.OrderBy(p1=>p1.ProdId);
             
+            //var product1 = _gameSureDBContext.Products.OrderBy(p1=>p1.ProdId);
             
+
             if (ModelState.IsValid)
             {
                
@@ -73,7 +76,10 @@ namespace GameSureWebApp.Controllers
         [AllowAnonymous]
         public IActionResult Product()
         {
-            return View();
+            var product1 = (from Product in _gameSureDBContext.Products
+                           select Product).ToList();
+            
+            return View(product1);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

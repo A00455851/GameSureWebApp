@@ -129,7 +129,7 @@ namespace GameSureWebApp.Controllers
 
             Product product = new Product();
 
-            product = _gameSureDBContext.Products.FirstOrDefault(P => P.ProdId == 1);
+            product = _gameSureDBContext.Products.FirstOrDefault(P => P.ProdPlan == userForm.ProdPlan);
             TransactionDet transactionDet = new TransactionDet
             {
                 StartDate = userForm.StartDate,
