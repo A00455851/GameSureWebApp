@@ -1,15 +1,10 @@
-﻿@model GameSureWebApp.Models.ViewModels.UserForm
+﻿
+@model GameSureWebApp.Models.ViewModels.UserForm
 
 @{
     ViewData["Title"] = "User Details";
 }
-@using (Html.BeginForm("UserPreview", "Home", FormMethod.Post));
-<style>
-    body {
-        background: url("https://upload.wikimedia.org/wikipedia/commons/d/d1/Crystal_Clear_app_package_games.svg");
-        background-size: cover;
-    }
-</style>
+@using (Html.BeginForm("UserPreview", "Home", FormMethod.Post))
 
 
 {
