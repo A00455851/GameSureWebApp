@@ -75,6 +75,8 @@ namespace GameSureWebApp.Models.ViewModels
         [Required(ErrorMessage = "Equipment detail is required")]
         public string EquipmentDet { get; set; }
 
+        public string ProdPlan { get; set; }
+
 
     }
 }
