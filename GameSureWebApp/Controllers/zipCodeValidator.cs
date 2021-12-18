@@ -29,7 +29,7 @@ namespace GameSureWebApp.Controllers
                     return new ValidationResult("There is an error in zipCode."); ;
                 var _usZipRegEx = @"^\d{5}(?:[-\s]\d{4})?$";
                 var _caZipRegEx = @"^([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9])$";
-                if ((!Regex.Match(zipCode, _usZipRegEx).Success)|| (!Regex.Match(zipCode, _caZipRegEx).Success))
+                if ((!Regex.Match(zipCode, _usZipRegEx).Success) || (!Regex.Match(zipCode, _caZipRegEx).Success))
                 {
                     return new ValidationResult("There is an error in zipCode.");
                 }

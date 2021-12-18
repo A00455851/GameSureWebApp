@@ -51,6 +51,7 @@
                 <div class="row">
                     <label for="CardName" class="pl-2">Name on Card</label>
                     <Input type="text" class="form-control  pl-2" name="CardName" aria-describedby="CardName" placeholder="Name on Card" value="">
+                    <span asp-validation-for="CardName" class="text-danger"></span>
                 </div>
                 <div class="row pt-2">
                     <div class="col-6">
@@ -63,7 +64,8 @@
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <Input type="date" class="form-control" name="CardExpiry" aria-describedby="CardExpiry" placeholder="MM/YYYY" value="">
+                        <Input type="text" class="form-control" name="CardExpiry" aria-describedby="CardExpiry" placeholder="MM/YYYY" value="">
+                        <span asp-validation-for="CardExpiry" class="text-danger"></span>
                     </div>
                     <div class="col-6">
                         <div class="form-group">

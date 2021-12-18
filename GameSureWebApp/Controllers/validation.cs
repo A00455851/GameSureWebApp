@@ -7,10 +7,10 @@ namespace GameSureWebApp.Controllers
 {
     public class validation
     {
-    /*
-        isValidDateRange checks if checkout date is greater than checkin date and returns true if it is valid
-    */
-    public static bool isValidDateRange(DateTime checkin, DateTime checkout)
+        /*
+            isValidDateRange checks if checkout date is greater than checkin date and returns true if it is valid
+        */
+        public static bool isValidDateRange(DateTime checkin, DateTime checkout)
         {
             // DateTime date1 = new DateTime(2009, 8, 1, 0, 0, 0);
             // DateTime date2 = new DateTime(2009, 8, 1, 12, 0, 0);
@@ -18,17 +18,17 @@ namespace GameSureWebApp.Controllers
             bool valCheck;
 
             if (result <= 0)
-                 valCheck = false;//valCheck= "End date should exceed start date";
+                valCheck = false;//valCheck= "End date should exceed start date";
             else
                 valCheck = true;//valCheck="Valid date"
             return valCheck;
         }
 
-    /*
-        isValidName checks if input name contains only alphabets with spaces allowed
-        can be used for last name, first name, city, province/state, and credit card holder’s name
-    */
-    public static bool isValidName(String inputName)
+        /*
+            isValidName checks if input name contains only alphabets with spaces allowed
+            can be used for last name, first name, city, province/state, and credit card holder’s name
+        */
+        public static bool isValidName(String inputName)
         {
             if (string.IsNullOrWhiteSpace(inputName))
                 return false;
@@ -36,10 +36,10 @@ namespace GameSureWebApp.Controllers
             return valCheck;
         }
 
-    /*
-        IsUSZipCode checks if input string is a valid US zip code
-    */    
-    public static bool isUSZipCode(string zipCode)
+        /*
+            IsUSZipCode checks if input string is a valid US zip code
+        */
+        public static bool isUSZipCode(string zipCode)
         {
             if (string.IsNullOrWhiteSpace(zipCode))
                 return false;
@@ -53,10 +53,10 @@ namespace GameSureWebApp.Controllers
 
         }
 
-    /*
-        IsaCanadianZipCode checks if input string is a valid Canadian zip code
-    */
-    public static bool isaCanadianZipCode(string zipCode)
+        /*
+            IsaCanadianZipCode checks if input string is a valid Canadian zip code
+        */
+        public static bool isaCanadianZipCode(string zipCode)
         {
             if (string.IsNullOrWhiteSpace(zipCode))
                 return false;
@@ -68,18 +68,18 @@ namespace GameSureWebApp.Controllers
             }
             return validZipCode;
 
-        }    
+        }
 
-    /*
-        IsaCanadianZipCode checks if the selected country is USA or Canada,
-        the phone number must be a valid US/Canadian phone number.
-    */
-    public static bool isUSorCanadaNumber(string inputPhoneNumber)
+        /*
+            IsaCanadianZipCode checks if the selected country is USA or Canada,
+            the phone number must be a valid US/Canadian phone number.
+        */
+        public static bool isUSorCanadaNumber(string inputPhoneNumber)
         {
             if (string.IsNullOrWhiteSpace(inputPhoneNumber))
                 return false;
-            const string MatchPhonePattern =@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}";
-;
+            const string MatchPhonePattern = @"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}";
+            ;
             var validPhoneNumber = true;
             if ((!Regex.Match(inputPhoneNumber, MatchPhonePattern).Success))
             {
@@ -88,10 +88,10 @@ namespace GameSureWebApp.Controllers
             return validPhoneNumber;
 
         }
-    /*
-        isValidEmail checks if the email address is a valid Internet email address.
-    */
-    public static bool isValidEmail(string email)
+        /*
+            isValidEmail checks if the email address is a valid Internet email address.
+        */
+        public static bool isValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
                 return false;
@@ -134,10 +134,10 @@ namespace GameSureWebApp.Controllers
                 return false;
             }
         }
-    /*
-        isValidCreditCard checks if the credit card is a valid Visa or MasterCard or American Express.
-    */
-    public static bool isValidCreditCard(string credCard)
+        /*
+            isValidCreditCard checks if the credit card is a valid Visa or MasterCard or American Express.
+        */
+        public static bool isValidCreditCard(string credCard)
         {
             if (string.IsNullOrWhiteSpace(credCard))
                 return false;
@@ -152,13 +152,13 @@ namespace GameSureWebApp.Controllers
             return validCreditCard;
 
         }
-    // public static bool isRequiredFieldEntered(String textBox_text)
-    // {
-    //     if (String.IsNullOrEmpty(TextBox.Text))
-    //     {
-    //         MessageBox.Show("Enter Text Here.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Warning);
-    //     }
-    // }
-    
+        // public static bool isRequiredFieldEntered(String textBox_text)
+        // {
+        //     if (String.IsNullOrEmpty(TextBox.Text))
+        //     {
+        //         MessageBox.Show("Enter Text Here.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+        //     }
+        // }
+
     }
 }

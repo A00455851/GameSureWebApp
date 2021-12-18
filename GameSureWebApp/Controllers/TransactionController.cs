@@ -102,7 +102,54 @@ namespace GameSureWebApp.Controllers
         {
 
 
+            if (ModelState.IsValid)
+            {
+                GameSureWebAppUser appuser = _userManager.GetUserAsync(User).GetAwaiter().GetResult();
+                Address address = new Address
+                {
+                    Address1 = userForm.Addr1,
+                    Address2 = userForm.Addr2,
+                    City = userForm.City,
+                    Province = userForm.Province.ToString(),
+                    Country = userForm.Country.ToString(),
+                    Zipcode = userForm.Zipcode,
+                    GameSureWebAppUser = appuser
+                };
 
+                PaymentMethod paymentMethod = new PaymentMethod
+                {
+                    PaymentType = userForm.CardType
+                };
+
+                Product product = new Product();
+
+                product = _gameSureDBContext.Products.FirstOrDefault(P => P.ProdPlan == userForm.ProdPlan);
+                TransactionDet transactionDet = new TransactionDet
+                {
+                    StartDate = userForm.StartDate,
+                    EndDate = userForm.EndDate,
+                    EquipmentDet = userForm.EquipmentDet,
+                    TotalPrice = product.Price
+
+                };
+
+                Transaction transaction = new Transaction
+                {
+                    TxnDate = DateTime.Now,
+                    TxnStatus = "C",
+                    PaymentMethod = paymentMethod,
+                    GameSureWebAppUser = appuser,
+                    transactionDets = new List<TransactionDet>() { transactionDet }
+
+                };
+
+                _gameSureDBContext.Transactions.Add(transaction);
+                _gameSureDBContext.Addresses.Add(address);
+
+                _gameSureDBContext.SaveChanges();
+
+                return View();
+            }
             //GameSureWebAppUser gameSureWebAppUser = new GameSureWebAppUser
             //{
             //    FirstName = userForm.FirstName,
@@ -110,52 +157,11 @@ namespace GameSureWebApp.Controllers
             //    Email = userForm.EmailId,
             //    Phone = userForm.Phone,
             //};
-            GameSureWebAppUser appuser = _userManager.GetUserAsync(User).GetAwaiter().GetResult();
-            Address address = new Address
-            {
-                Address1 = userForm.Addr1,
-                Address2 = userForm.Addr2,
-                City = userForm.City,
-                Province = userForm.Province.ToString(),
-                Country = userForm.Country.ToString(),
-                Zipcode = userForm.Zipcode,
-                GameSureWebAppUser = appuser
-            };
 
-            PaymentMethod paymentMethod = new PaymentMethod
-            {
-                PaymentType = userForm.CardType
-            };
 
-            Product product = new Product();
-
-            product = _gameSureDBContext.Products.FirstOrDefault(P => P.ProdPlan == userForm.ProdPlan);
-            TransactionDet transactionDet = new TransactionDet
-            {
-                StartDate = userForm.StartDate,
-                EndDate = userForm.EndDate,
-                EquipmentDet = userForm.EquipmentDet,
-                TotalPrice = product.Price
-
-            };
-
-            Transaction transaction = new Transaction
-            {
-                TxnDate = DateTime.Now,
-                TxnStatus = "C",
-                PaymentMethod = paymentMethod,
-                GameSureWebAppUser = appuser,
-                transactionDets=new List<TransactionDet>() { transactionDet}
-                
-            };
-
-            _gameSureDBContext.Transactions.Add(transaction);
-            _gameSureDBContext.Addresses.Add(address);
-
-            _gameSureDBContext.SaveChanges();
-                    
-         return View();
-    }
+            //return View();
+            return RedirectToAction("SaveData", "SaveUserData",userForm);
+        }
 
     }
 }
