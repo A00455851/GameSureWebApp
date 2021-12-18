@@ -1,12 +1,8 @@
+@model IEnumerable<GameSureWebApp.Models.Product>
+
 @{
     ViewData["Title"] = "Available Insurance Policies";
 }
-<style>
-    body {
-        background: url("https://upload.wikimedia.org/wikipedia/commons/d/d2/Video_Game_%28Search%29.svg");
-        background-size: cover;
-    }
-</style>
 
 <body>
     <div class="home">
@@ -20,8 +16,8 @@
                 <th width="15%">Plan Id</th>
                 <th width="25%">Feature</th>
                 <th width="15%">Mininal Length<br /> of Coverage (Month)</th>
-                <th width="15%" text-align="right">Prince($)</th>
-                <th width="10%" text-align="right">Action</th>
+                <th width="15%" text-align="center">Prince($)</th>
+                <th width="10%" text-align="center">Action</th>
             </tr>
             @foreach (var item in Model)
             {
