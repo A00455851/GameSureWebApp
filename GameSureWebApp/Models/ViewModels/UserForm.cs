@@ -44,7 +44,7 @@ namespace GameSureWebApp.Models.ViewModels
 
         [Required(ErrorMessage ="Zip Code is required")]
         //[zipCodeValidator("Country")]
-        [RegularExpression(@"^([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9])$", ErrorMessage = "Please enter a valid city name - lowercase/Uppercase English Alphabets allowed. ")]
+        [RegularExpression(@"^([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9])$", ErrorMessage = "Please enter a valid zip code.")]
         public string Zipcode { get; set; }
 
         [Required(ErrorMessage ="Country is required")]
@@ -81,6 +81,8 @@ namespace GameSureWebApp.Models.ViewModels
         public string EquipmentDet { get; set; }
 
         public string ProdPlan { get; set; }
+
+        public string ProdPrice { get; set; }
 
 
     }
