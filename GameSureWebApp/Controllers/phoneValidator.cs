@@ -20,7 +20,9 @@ namespace GameSureWebApp.Controllers
             {
                 if (string.IsNullOrWhiteSpace(inputPhoneNumber))
                     return false;
-                const string MatchPhonePattern = @"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}";
+                //const string MatchPhonePattern = @"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}";
+                const string MatchPhonePattern = @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$";
+
                 ;
                 var validPhoneNumber = true;
                 if ((!Regex.Match(inputPhoneNumber, MatchPhonePattern).Success))
