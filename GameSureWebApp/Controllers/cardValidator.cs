@@ -49,7 +49,7 @@ namespace GameSureWebApp.Controllers
                 {
                     return new ValidationResult("Invalid Value of American Express card number.");
                 }
-                return new ValidationResult("Invalid Value of card number.");
+                return ValidationResult.Success;
             }
         }
     }
