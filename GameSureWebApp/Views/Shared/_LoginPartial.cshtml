@@ -3,7 +3,12 @@
 
 @inject SignInManager<GameSureWebAppUser> SignInManager
 @inject UserManager<GameSureWebAppUser> UserManager
-
+<style>
+    body {
+        background: url("https://upload.wikimedia.org/wikipedia/commons/d/d3/Playstaion_japanese_alternative_trademark_3D.svg");
+        background-size: cover;
+    }
+</style>
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
