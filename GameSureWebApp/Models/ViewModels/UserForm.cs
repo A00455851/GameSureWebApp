@@ -68,9 +68,11 @@ namespace GameSureWebApp.Models.ViewModels
         public string CardNumber { get; set; }
 
         [Required(ErrorMessage = "Card name not valid")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please enter a valid first name - lowercase/Uppercase English Alphabets allowed. ")]
         public string CardName { get; set; }
 
         [Required(ErrorMessage = "Card Expiry date is required")]
+        [RegularExpression(@"^((0[1-9])|(1[0-2]))\/((2009)|(20[1-2] [0-9]))$", ErrorMessage = "Please enter date in MM/YYYY format.")]
         public DateTime CardExpiry { get; set; }
 
         [StringLength(3,ErrorMessage = "CVV cannot exceed 3 digits")]
